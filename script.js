@@ -1,5 +1,5 @@
 // generates a random number between 1-3 and assigns it to (rock, paper, scissor)
-function computerChoice() {
+function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3) + 1;
 
     if (choice === 1) {
@@ -16,7 +16,7 @@ function computerChoice() {
 }
 
 // compares computers choice with players and returns result based on outcome
-function game(playerChoice, compChoice) {
+function playGame(playerChoice, compChoice) {
     if (playerChoice === "rock" && compChoice === "rock") {     
         return "Draw!";
     }
@@ -56,9 +56,9 @@ do {
     // make sure it's case insensitive
     playerChoice = playerChoice.toLowerCase()
     // store computers choice in a variable
-    let compChoice = computerChoice()
+    let compChoice = getComputerChoice()
 
-    let result = game(playerChoice, compChoice)
+    let result = playGame(playerChoice, compChoice)
     if (result === "You Win!") {
         playerScore++
     } else if (result === "You Lose!") {
