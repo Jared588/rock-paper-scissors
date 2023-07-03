@@ -49,30 +49,3 @@ function playGame(playerChoice, compChoice) {
 // create variables to keep track of scores
 let playerScore = 0
 let compScore = 0
-
-do {
-    // create a variable that stores the players choice
-    let playerChoice = prompt("Rock, Paper, Scissors?: ")
-    // make sure it's case insensitive
-    playerChoice = playerChoice.toLowerCase()
-    // store computers choice in a variable
-    let compChoice = getComputerChoice()
-
-    let result = playGame(playerChoice, compChoice)
-    if (result === "You Win!") {
-        playerScore++
-    } else if (result === "You Lose!") {
-        compScore++
-    }
-
-    // display and update the score
-    console.log(result)
-    console.log(`You: ${playerScore} || Computer: ${compScore} `)
-
-    // alert the player of the winner (first to 3)
-    if (playerScore === 3) {
-        alert("You Win!")
-    } else if (compScore === 3) {
-        alert("You Lose!")
-    }   
-} while ((playerScore < 3) && (compScore < 3));
