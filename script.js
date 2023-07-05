@@ -28,7 +28,7 @@ function playGame(playerChoice, compChoice) {
       }
 
     updateScores(result);
-    
+
     // check for endgame
     if (playerScore === 5) {
         setTimeout(function () {
@@ -79,17 +79,28 @@ function endGame(winner) {
 
 // add appropriate eventListeners to each button
 document.addEventListener("DOMContentLoaded", function(e) {
-    var btn1 = document.getElementById("btn1");
-    var btn2 = document.getElementById("btn2");
-    var btn3 = document.getElementById("btn3");
+    var buttons = document.querySelectorAll(".btn"); // select all buttons with class .btn
+  
+    buttons.forEach(function(button) { // loop over each one, adding eventListeners
+      button.addEventListener("click", function() {
+        var choice = button.dataset.choice; // use dataset.choice to distinguish each button (refer to html)
+        buttonClicked(choice);
+      });
+  
+      button.addEventListener("mouseover", function() {
+        highlightImage(button);
+      });
+  
+      button.addEventListener("mouseout", function() {
+        removeHighlight(button);
+      });
+    });
+  });
 
-    btn1.addEventListener("click", function () {
-        buttonClicked("rock");
-    });
-    btn2.addEventListener("click", function () {
-        buttonClicked("paper");
-    });
-    btn3.addEventListener("click", function () {
-        buttonClicked("scissors");
-    });
-});
+function highlightImage(btn) {
+    btn.classList.add('highlight');
+}
+
+function removeHighlight(btn) {
+    btn.classList.remove('highlight');
+}
