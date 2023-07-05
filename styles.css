@@ -29,3 +29,17 @@ body {
     text-align: center;
     color: aliceblue;
 }
+
+.btn {
+    height: auto;
+    width: 125px;
+}
+
+.score {
+    display: flex;
+    flex: auto;
+    justify-content: space-around;
+    font-family: cursive;
+    font-size: 32px;
+    margin: 50px 100px;
+}
