@@ -47,3 +47,15 @@ body {
 .highlight {
     transform: scale(1.1);
 }
+
+.score-highlight-green {
+    color: greenyellow;
+}
+
+.score-highlight-red {
+    color: rgb(212, 45, 45);
+}
+
+.score-highlight-orange {
+    color: orange;
+}

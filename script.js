@@ -17,14 +17,18 @@ function playGame(playerChoice, compChoice) {
 
     if (playerChoice === compChoice) {
         result = "Draw!";
+        highlightScore(document.getElementById("p-score"), 'orange');
+        highlightScore(document.getElementById("c-score"), 'orange');
       } else if (
         (playerChoice === "rock" && compChoice === "scissors") ||
         (playerChoice === "paper" && compChoice === "rock") ||
         (playerChoice === "scissors" && compChoice === "paper")
       ) {
         result = "You Win!";
+        highlightScore(document.getElementById("p-score"), 'green');
       } else {
         result = "You Lose!";
+        highlightScore(document.getElementById("c-score"), 'red');
       }
 
     updateScores(result);
@@ -103,4 +107,11 @@ function highlightImage(btn) {
 
 function removeHighlight(btn) {
     btn.classList.remove('highlight');
+}
+
+function highlightScore(target, color) {
+  target.classList.add('score-highlight-' + color);
+  setTimeout(function() {
+    target.classList.remove('score-highlight-' + color);
+  }, 500);
 }
